@@ -1,28 +1,26 @@
-import React, {useState} from 'react';
-import {SafeAreaView, View, Text, Button} from 'react-native';
 
-const Box = ({color}) => {
-  const [on, setOn] = useState(true);
-  return (
-    <View style={[styles.box, {backgroundColor: color}]}>
-      {on ? <Text>Ligado</Text> : <Text>Desligado</Text>}
-      <Button title="Ligar/Desligar" onPress={() => setOn(!on)} />
-      <Button title="Ligar/Desligar TODAS CAIXAS" onPress={() => setOn(!on)} />
-    </View>
-  );
-};
+import {SafeAreaView} from 'react-native';
+import React from 'react';
+
+import {Provider} from 'react-redux';
+
+import Box from './src/components/Box';
+
+import {store} from './src/store/store';
+
+
+
+
 
 const App = () => {
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <Box color="orange" />
-      <Box color="blue" />
-    </SafeAreaView>
+    <Provider store={store}>
+     <SafeAreaView style={{flex: 1}}>
+       <Box color="green" />
+       <Box color="blue" />
+     </SafeAreaView>
+    </Provider>
   );
-};
-
-const styles = {
-  box: {flex: 1},
 };
 
 export default App;
