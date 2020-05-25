@@ -12,7 +12,7 @@ import {store} from './src/store/store';
 
 
 
-const App = () => {
+const meuApp = () => {
   return (
     <Provider store={store}>
      <SafeAreaView style={{flex: 1}}>
@@ -23,4 +23,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default meuApp;
